@@ -70,7 +70,7 @@ namespace ecommerce.WebASP.Logica
             }
             catch (Exception ex)
             {
-                throw new ArgumentException("Error al consultar el producto");
+                throw new ArgumentException("Error al guardar producto");
             }
         }
 
