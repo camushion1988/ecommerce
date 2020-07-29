@@ -9,7 +9,7 @@
         </asp:TemplateField>
         <asp:TemplateField>
             <ItemTemplate>
-                <asp:ImageButton ID="imbEliminar" runat="server" ImageUrl="~/Iconos/eliminar.ico" Width="24px" Height="24px" CommandName="Eliminar" CommandArgument='<%#Eval("ID") %>' />
+                <asp:ImageButton ID="imbEliminar" runat="server" ImageUrl="~/Iconos/eliminar.ico" Width="24px" Height="24px" CommandName="Eliminar" CommandArgument='<%#Eval("ID") %>' OnClientClick="return confirm('Desea eliminar el registro')" />
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>

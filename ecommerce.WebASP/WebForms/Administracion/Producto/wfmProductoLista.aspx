@@ -9,7 +9,16 @@
         <table width="95%">
             <tr>
                 <td>
-                    <h3>Lista Producto</h3>
+                    <h3>Lista Productos</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:ImageButton ID="imbNuevo" runat="server" ImageUrl="~/Iconos/nuevo.ico" Width="32px" Height="32px" CausesValidation="false" OnClick="imbNuevo_Click" />
+                    <asp:LinkButton ID="lnkNuevo" runat="server" CausesValidation="false" OnClick="lnkNuevo_Click">Nuevo</asp:LinkButton>
                 </td>
             </tr>
             <tr>

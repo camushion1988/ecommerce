@@ -47,7 +47,26 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
             }
             if (e.CommandName == "Eliminar")
             {
+                TBL_PRODUCTO _infoProducto = new TBL_PRODUCTO();
+                var taskProducto = Task.Run(() => LogicaProducto.getProductXId(int.Parse(codigo)));
+                taskProducto.Wait();
+                _infoProducto = taskProducto.Result;
+                if (_infoProducto != null)
+                {
+                    Task<bool> _taskSaveProduct = Task.Run(() => LogicaProducto.deleteProduct(_infoProducto));
+                    _taskSaveProduct.Wait();
+                    var resultado = _taskSaveProduct.Result;
 
+                    if (resultado)
+                    {
+                        Response.Write("<script>alert('Registro Eliminado Correctamente')</script>");
+
+                        Task<List<TBL_PRODUCTO>> _taskProductos = Task.Run(() => LogicaProducto.getAllProduct());
+                        _taskProductos.Wait();
+                        var _listaProducto = _taskProductos.Result;
+                        loadProductos(_listaProducto);
+                    }
+                }
             }
         }
 
@@ -116,6 +135,20 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
                         break;
                 }
             }
+        }
+
+        private void nuevoProduct()
+        {
+            Response.Redirect("wfmProductoNuevo.aspx", true);
+        }
+        protected void imbNuevo_Click(object sender, ImageClickEventArgs e)
+        {
+            nuevoProduct();
+        }
+
+        protected void lnkNuevo_Click(object sender, EventArgs e)
+        {
+            nuevoProduct();
         }
     }
 }

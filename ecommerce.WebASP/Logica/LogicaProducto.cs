@@ -140,7 +140,8 @@ namespace ecommerce.WebASP.Logica
                 bool resultado = false;
                 _infoPRODUCTO.PRO_FECHACREACION = DateTime.Now;
                 _infoPRODUCTO.PRO_STATUS = "I";
-
+                //Eliminar de forma fisica delete from
+                //db.TBL_PRODUCTO.Remove(_infoPRODUCTO);
                 //Actualizar Contexto Datos
                 await db.SaveChangesAsync();
                 resultado = true;

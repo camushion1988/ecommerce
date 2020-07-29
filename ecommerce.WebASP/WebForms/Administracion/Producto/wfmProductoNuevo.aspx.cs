@@ -88,6 +88,49 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
                 if (resultado)
                 {
                     LblMensaje.Text = "Registro Guardado Correctamente";
+                    newProduct();
+                }
+            }
+            catch (Exception ex)
+            {
+                LblMensaje.Text = ex.Message;
+            }
+
+        }
+
+        private void updateProduct()
+        {
+            try
+            {
+                //validacion
+                TBL_PRODUCTO _infoProducto = new TBL_PRODUCTO();
+                //verificar si el producto existe
+                var taskProducto = Task.Run(() => LogicaProducto.getProductXId(int.Parse(LblId.Text)));
+                taskProducto.Wait();
+                _infoProducto = taskProducto.Result;
+
+                if (_infoProducto != null)
+                {
+                    _infoProducto.PRO_ID = int.Parse(LblId.Text);
+                    _infoProducto.CAT_ID = Convert.ToInt16(UC_Categoria1.DropDownList.SelectedValue);
+                    _infoProducto.PRO_CODIGO = txtCodigo.Text;
+                    _infoProducto.PRO_NOMBRE = txtNombre.Text;
+                    _infoProducto.PRO_DESCRIPCION = txtDescripcion.Text;
+                    _infoProducto.PRO_IMAGEN = "C:/imagen";
+                    _infoProducto.PRO_PRECIOCOMPRA = Convert.ToDecimal(txtPrecioCompra.Text);
+                    _infoProducto.PRO_PRECIOVENTA = Convert.ToDecimal(txtPrecioVenta.Text);
+                    _infoProducto.PRO_STOCKMINIMO = Convert.ToInt32(txtStockMinimo.Text);
+                    _infoProducto.PRO_STOCKMAXIMO = Convert.ToInt32(txtStockMaximo.Text);
+
+                    Task<bool> _taskSaveProduct = Task.Run(() => LogicaProducto.updateProduct(_infoProducto));
+                    _taskSaveProduct.Wait();
+                    var resultado = _taskSaveProduct.Result;
+
+                    if (resultado)
+                    {
+                        LblMensaje.Text = "Registro Modificado Correctamente";
+                        Response.Redirect("wfmProductoLista.aspx", true);
+                    }
                 }
             }
             catch (Exception ex)
@@ -99,12 +142,26 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
 
         protected void LnkGuardar_Click(object sender, EventArgs e)
         {
-            saveProduct();
+            if (!string.IsNullOrEmpty(LblId.Text))
+            {
+                updateProduct(); 
+            }
+            else
+            {
+                saveProduct();
+            }
         }
 
         protected void ImgGuardar_Click(object sender, ImageClickEventArgs e)
         {
-            saveProduct();
+            if (!string.IsNullOrEmpty(LblId.Text))
+            {
+                updateProduct();
+            }
+            else
+            {
+                saveProduct();
+            }
         }
     }
 }

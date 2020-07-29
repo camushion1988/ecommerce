@@ -15,6 +15,24 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
     {
 
         /// <summary>
+        /// Control imbNuevo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imbNuevo;
+
+        /// <summary>
+        /// Control lnkNuevo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkNuevo;
+
+        /// <summary>
         /// Control ddlBuscar.
         /// </summary>
         /// <remarks>
