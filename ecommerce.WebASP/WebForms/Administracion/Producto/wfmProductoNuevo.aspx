@@ -12,20 +12,19 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
-                &nbsp;</td>
+            <td colspan="2">&nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">
                 <table>
                     <tr>
                         <td>
+                            <asp:ImageButton ID="imbNuevo" runat="server" ImageUrl="~/Iconos/nuevo.ico" Width="32px" Height="32px" OnClick="imgNuevo_Click" />
                             <asp:LinkButton ID="lnkNuevo" runat="server" OnClick="lnkNuevo_Click" CausesValidation="false">Nuevo</asp:LinkButton>
-                            <asp:ImageButton ID="imgNuevo" runat="server" ImageUrl="~/Iconos/nuevo.ico" Width="32px" Height="32px" OnClick="imgNuevo_Click" />
                         </td>
                         <td>
+                            <asp:ImageButton ID="imbGuardar" runat="server" ImageUrl="~/Iconos/guardar.ico" Width="32px" Height="32px" OnClick="ImgGuardar_Click" />
                             <asp:LinkButton ID="LnkGuardar" runat="server" OnClick="LnkGuardar_Click">Guardar</asp:LinkButton>
-                            <asp:ImageButton ID="ImgGuardar" runat="server" ImageUrl="~/Iconos/guardar.ico" Width="32px" Height="32px" OnClick="ImgGuardar_Click" />
                         </td>
                     </tr>
                 </table>
@@ -111,7 +110,7 @@
         <tr>
             <td>Mensaje</td>
             <td style="width: 164px">
-                <asp:Label ID="LblMensaje" runat="server"></asp:Label>
+                <asp:Label ID="LblMensaje" runat="server" ForeColor="#CC3300"></asp:Label>
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="#CC3300" />
             </td>
         </tr>

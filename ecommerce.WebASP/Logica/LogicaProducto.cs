@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace ecommerce.WebASP.Logica
 {
@@ -39,18 +40,55 @@ namespace ecommerce.WebASP.Logica
             }
         }
 
-        public static async Task<TBL_PRODUCTO> getProductXCode(string codigo)
+        public static async Task<List<TBL_PRODUCTO>> searchProductXCode(string codigo)
         {
             try
             {
                 return await db.TBL_PRODUCTO.Where(data => data.PRO_STATUS == "A"
-                && data.PRO_CODIGO.Equals(codigo)
-                ).FirstOrDefaultAsync();
+                && data.PRO_CODIGO.StartsWith(codigo)
+                ).ToListAsync();
             }
             catch (Exception ex)
             {
                 throw new ArgumentException("Error al consultar el producto");
             }
+        }
+
+        public static async Task<List<TBL_PRODUCTO>> searchProductXNombre(string nombre)
+        {
+            try
+            {
+                return await db.TBL_PRODUCTO.Where(data => data.PRO_STATUS == "A"
+                && data.PRO_NOMBRE.StartsWith(nombre)
+                ).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Error al consultar el producto");
+            }
+        }
+
+        public static async Task<List<TBL_PRODUCTO>> searchProductXCategoria(string categoria)
+        {
+            try
+            {
+                return await db.TBL_PRODUCTO.Where(data => data.PRO_STATUS == "A"
+                && data.TBL_CATEGORIA.CAT_NOMBRE.StartsWith(categoria)
+                ).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Error al consultar productoS");
+            }
+        }
+
+        //generar secuencia por programacion
+        public static int getNextSequence()
+        {
+            var query = db.Database.SqlQuery<int>("SELECT NEXT VALUE FOR sq_ProductoId");
+            var task = query.SingleAsync();
+            int valorSequence = task.Result;
+            return valorSequence;
         }
 
         public static async Task<bool> saveProduct(TBL_PRODUCTO _infoPRODUCTO)
@@ -59,6 +97,9 @@ namespace ecommerce.WebASP.Logica
             {
                 //auditoria basica
                 bool resultado = false;
+
+                //genera secuencia
+                _infoPRODUCTO.PRO_ID = getNextSequence();
                 _infoPRODUCTO.PRO_STATUS = "A";
                 _infoPRODUCTO.PRO_FECHACREACION = DateTime.Now;
                 db.TBL_PRODUCTO.Add(_infoPRODUCTO);

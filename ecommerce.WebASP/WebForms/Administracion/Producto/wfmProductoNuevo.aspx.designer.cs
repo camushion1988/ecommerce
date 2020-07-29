@@ -15,6 +15,15 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
     {
 
         /// <summary>
+        /// Control imbNuevo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imbNuevo;
+
+        /// <summary>
         /// Control lnkNuevo.
         /// </summary>
         /// <remarks>
@@ -24,13 +33,13 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
         protected global::System.Web.UI.WebControls.LinkButton lnkNuevo;
 
         /// <summary>
-        /// Control imgNuevo.
+        /// Control imbGuardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgNuevo;
+        protected global::System.Web.UI.WebControls.ImageButton imbGuardar;
 
         /// <summary>
         /// Control LnkGuardar.
@@ -40,15 +49,6 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LnkGuardar;
-
-        /// <summary>
-        /// Control ImgGuardar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImgGuardar;
 
         /// <summary>
         /// Control LblId.

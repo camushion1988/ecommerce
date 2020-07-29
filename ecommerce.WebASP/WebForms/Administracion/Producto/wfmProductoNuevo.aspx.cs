@@ -16,7 +16,31 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
         {
             if (!IsPostBack)
             {
+                if (Request["cod"] != null)
+                {
+                    int idProducto = Convert.ToInt32(Request["cod"].ToString());
+                    loadProducto(idProducto);
+                }
+            }
+        }
 
+        private void loadProducto(int idProducto)
+        {
+            TBL_PRODUCTO _infoProducto = new TBL_PRODUCTO();
+            var task = Task.Run(() => LogicaProducto.getProductXId(idProducto));
+            task.Wait();
+            _infoProducto = task.Result;
+            if (_infoProducto != null)
+            {
+                LblId.Text = _infoProducto.PRO_ID.ToString();
+                txtCodigo.Text = _infoProducto.PRO_CODIGO;
+                UC_Categoria1.DropDownList.SelectedValue = _infoProducto.CAT_ID.ToString();
+                txtNombre.Text = _infoProducto.PRO_NOMBRE;
+                txtDescripcion.Text = _infoProducto.PRO_DESCRIPCION;
+                txtPrecioCompra.Text = _infoProducto.PRO_PRECIOCOMPRA.ToString();
+                txtPrecioVenta.Text = _infoProducto.PRO_PRECIOVENTA.ToString();
+                txtStockMinimo.Text = _infoProducto.PRO_STOCKMINIMO.ToString();
+                txtStockMaximo.Text = _infoProducto.PRO_STOCKMAXIMO.ToString();
             }
         }
         private void newProduct()
@@ -46,7 +70,7 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
             try
             {
                 TBL_PRODUCTO _infoProducto = new TBL_PRODUCTO();
-                _infoProducto.PRO_ID = 100;
+                //_infoProducto.PRO_ID = 100;
                 _infoProducto.CAT_ID = Convert.ToInt16(UC_Categoria1.DropDownList.SelectedValue);
                 _infoProducto.PRO_CODIGO = txtCodigo.Text;
                 _infoProducto.PRO_NOMBRE = txtNombre.Text;
@@ -70,7 +94,7 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
             {
                 LblMensaje.Text = ex.Message;
             }
-            
+
         }
 
         protected void LnkGuardar_Click(object sender, EventArgs e)
