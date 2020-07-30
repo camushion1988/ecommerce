@@ -133,14 +133,26 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Iconos\buscar.ico" />
+    <Content Include="Iconos\comprar.ico" />
+    <Content Include="Iconos\comprar.jpg" />
+    <Content Include="Iconos\comprar.png" />
+    <Content Include="Iconos\comprar2.png" />
     <Content Include="Iconos\editar.ico" />
     <Content Include="Iconos\eliminar.ico" />
     <Content Include="Iconos\guardar.ico" />
     <Content Include="Iconos\nuevo.ico" />
+    <Content Include="images\cerveza.jpg" />
+    <Content Include="images\cuaderno.jpg" />
+    <Content Include="images\laptop.jpg" />
+    <Content Include="images\refrigerador.jpg" />
+    <Content Include="images\ruffles.jpg" />
+    <Content Include="images\tvLg.jpg" />
     <Content Include="UserControl\ucCategoria.ascx" />
     <Content Include="UserControl\ucGridviewDatos.ascx" />
     <Content Include="WebForms\Administracion\Producto\wfmProductoLista.aspx" />
     <Content Include="WebForms\Administracion\Producto\wfmProductoNuevo.aspx" />
+    <Content Include="WebForms\Public\wfmCatalogo.aspx" />
+    <Content Include="WebForms\Public\wfmProducto.aspx" />
     <EntityDeploy Include="Models\ModelEcommerce.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelEcommerce.Designer.cs</LastGenOutput>
@@ -323,11 +335,25 @@
     <Compile Include="WebForms\Administracion\Producto\wfmProductoNuevo.aspx.designer.cs">
       <DependentUpon>wfmProductoNuevo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForms\Public\wfmCatalogo.aspx.cs">
+      <DependentUpon>wfmCatalogo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\Public\wfmCatalogo.aspx.designer.cs">
+      <DependentUpon>wfmCatalogo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\Public\wfmProducto.aspx.cs">
+      <DependentUpon>wfmProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\Public\wfmProducto.aspx.designer.cs">
+      <DependentUpon>wfmProducto.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="images\products\" />
     <Folder Include="WebForms\Administracion\Categoria\" />
-    <Folder Include="WebForms\Public\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -7,20 +7,29 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ecommerce.WebASP
+namespace ecommerce.WebASP.WebForms.Public
 {
 
 
-    public partial class SiteMaster
+    public partial class wfmCatalogo
     {
 
         /// <summary>
-        /// Control MainContent.
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
+        /// Control DataList1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataList1;
     }
 }
