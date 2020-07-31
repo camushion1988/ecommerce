@@ -15,6 +15,24 @@ namespace ecommerce.WebASP
     {
 
         /// <summary>
+        /// Control imbCompras.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imbCompras;
+
+        /// <summary>
+        /// Control lblContador.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContador;
+
+        /// <summary>
         /// Control MainContent.
         /// </summary>
         /// <remarks>

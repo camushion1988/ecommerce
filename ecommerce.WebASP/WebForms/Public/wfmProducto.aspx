@@ -27,27 +27,43 @@
 
                     </tr>
                     <tr>
-                        <td>
+                        <td align="center">
                             <h5>Precio: USD$
                                 <asp:Label ID="lblPrecio" runat="server" Text="Label" ForeColor="red"></asp:Label></h5>
                         </td>
 
                     </tr>
                     <tr>
-                        <td>
-                            &nbsp;</td>
+                        <td>&nbsp;</td>
 
                     </tr>
+
                     <tr>
                         <td>
-                            <asp:TextBox ID="txtCantidad" TextMode="Number" min="1" max="20" step="1" runat="server"></asp:TextBox>
-                            <asp:Button ID="btnComprar" runat="server" Text="Comprar" />
+                            <asp:Label ID="lblProducto" runat="server" Text="" visible="false" ></asp:Label>
                         </td>
 
                     </tr>
                     <tr>
-                        <td>
-                            &nbsp;</td>
+                        <td align="center">Cantidad:
+                            <asp:TextBox ID="txtCantidad" TextMode="Number" min="1" max="20" step="1" runat="server"></asp:TextBox>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td align="center">&nbsp;</td>
+
+                    </tr>
+
+                    <tr>
+                        <td align="center">
+                            <asp:ImageButton ID="btnComprar" runat="server" ImageUrl="~/Iconos/comprar2.png" Height="80px" Width="200px" OnClick="btnComprar_Click" />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
 
                     </tr>
                 </table>

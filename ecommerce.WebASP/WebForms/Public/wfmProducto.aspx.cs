@@ -33,20 +33,29 @@ namespace ecommerce.WebASP.WebForms.Public
             if (_infoProducto != null)
             {
                 imgProducto.ImageUrl = _infoProducto.PRO_IMAGEN;
+                lblProducto.Text = _infoProducto.PRO_ID.ToString();
                 lblNombre.Text = _infoProducto.PRO_NOMBRE;
                 lblDescripcion.Text = _infoProducto.PRO_DESCRIPCION;
                 lblPrecio.Text = _infoProducto.PRO_PRECIOVENTA.ToString("0.00");
-
-                //LblId.Text = _infoProducto.PRO_ID.ToString();
-                //txtCodigo.Text = _infoProducto.PRO_CODIGO;
-                //UC_Categoria1.DropDownList.SelectedValue = _infoProducto.CAT_ID.ToString();
-                //txtNombre.Text = _infoProducto.PRO_NOMBRE;
-                //txtDescripcion.Text = _infoProducto.PRO_DESCRIPCION;
-                //txtPrecioCompra.Text = _infoProducto.PRO_PRECIOCOMPRA.ToString();
-                //txtPrecioVenta.Text = _infoProducto.PRO_PRECIOVENTA.ToString();
-                //txtStockMinimo.Text = _infoProducto.PRO_STOCKMINIMO.ToString();
-                //txtStockMaximo.Text = _infoProducto.PRO_STOCKMAXIMO.ToString();
             }
+        }
+
+        protected void btnComprar_Click(object sender, ImageClickEventArgs e)
+        {
+            List<clsCarrito> _listaCarrito = new List<clsCarrito>();
+            _listaCarrito = (List<clsCarrito>)Session["Carrito"];
+
+            clsCarrito _infoProducto = new clsCarrito();
+            _infoProducto.idProducto = int.Parse(lblProducto.Text);
+            _infoProducto.cantidadProducto = int.Parse(txtCantidad.Text);
+            _infoProducto.precioProducto = decimal.Parse(lblPrecio.Text);
+            _infoProducto.nombreProducto = lblNombre.Text;
+
+            _listaCarrito.Add(_infoProducto);
+
+            Session["Carrito"] = _listaCarrito;
+
+            Response.Redirect("wfmCatalogo.aspx", true);
         }
     }
 }

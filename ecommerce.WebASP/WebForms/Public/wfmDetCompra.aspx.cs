@@ -6,35 +6,26 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ecommerce.WebASP
+namespace ecommerce.WebASP.WebForms.Public
 {
-    public partial class SiteMaster : MasterPage
+    public partial class wfmDetCompra : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                if (Session["Carrito"] == null)
-                {
-                    List<clsCarrito> _listaCarrito = new List<clsCarrito>();
-                    Session["Carrito"] = _listaCarrito;
-                }
-                else
+                if (Session["Carrito"] != null)
                 {
                     List<clsCarrito> _listaCarrito = new List<clsCarrito>();
                     _listaCarrito = (List<clsCarrito>)Session["Carrito"];
 
                     if (_listaCarrito.Count > 0 && _listaCarrito != null)
                     {
-                        lblContador.Text = _listaCarrito.Count.ToString();
-                    }
+                        GdvDetalleCompra.DataSource = _listaCarrito.ToList();
+                        GdvDetalleCompra.DataBind();
+                    } 
                 }
             }
-        }
-
-        protected void imbCompras_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("~/WebForms/Public/wfmDetCompra.aspx", true);
         }
     }
 }
