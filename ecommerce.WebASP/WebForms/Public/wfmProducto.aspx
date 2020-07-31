@@ -40,7 +40,8 @@
 
                     <tr>
                         <td>
-                            <asp:Label ID="lblProducto" runat="server" Text="" visible="false" ></asp:Label>
+                            <asp:Label ID="lblIdProducto" runat="server" Text="" visible="false" ></asp:Label>
+                            <asp:Label ID="lblCodigoProducto" runat="server" Text="" visible="false" ></asp:Label>
                         </td>
 
                     </tr>

@@ -51,13 +51,22 @@ namespace ecommerce.WebASP.WebForms.Public
         protected global::System.Web.UI.WebControls.Label lblPrecio;
 
         /// <summary>
-        /// Control lblProducto.
+        /// Control lblIdProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProducto;
+        protected global::System.Web.UI.WebControls.Label lblIdProducto;
+
+        /// <summary>
+        /// Control lblCodigoProducto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCodigoProducto;
 
         /// <summary>
         /// Control txtCantidad.
