@@ -21,11 +21,15 @@ namespace ecommerce.WebASP
                 }
                 else
                 {
+                    //Existe
+
                     List<clsCarrito> _listaCarrito = new List<clsCarrito>();
                     _listaCarrito = (List<clsCarrito>)Session["Carrito"];
 
                     if (_listaCarrito.Count > 0 && _listaCarrito != null)
                     {
+                        //suma
+                        //por producto, no por item!!
                         lblContador.Text = _listaCarrito.Count.ToString();
                     }
                 }

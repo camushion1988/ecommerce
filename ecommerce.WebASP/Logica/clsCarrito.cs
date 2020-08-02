@@ -7,6 +7,7 @@ namespace ecommerce.WebASP.Logica
 {
     public class clsCarrito
     {
+        //index del item
         public int numeroProducto { get; set; }
         public int idProducto { get; set; }
         public string codigoProducto { get; set; }
@@ -16,5 +17,10 @@ namespace ecommerce.WebASP.Logica
         public string nombreProducto { get; set; }
 
         public decimal valorTotal { get; set; }
+
+        public clsCarrito()
+        {
+
+        }
     }
 }
